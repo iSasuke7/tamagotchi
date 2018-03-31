@@ -1,7 +1,7 @@
 """Utility functions for tamagotchi which aren't specific to one purpose"""
 import mimetypes
 
-from telethon.tl import types
+from garry.tl import types
 
 ENTITY_TO_TEXT = {
     types.MessageEntityPre: 'pre',

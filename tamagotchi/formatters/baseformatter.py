@@ -10,8 +10,8 @@ from abc import abstractmethod
 from io import TextIOWrapper
 
 import os
-from telethon import utils
-from telethon.tl import types
+from garry import utils
+from garry.tl import types
 
 Message = namedtuple('Message', (
     'id', 'context_id', 'date', 'from_id', 'text', 'reply_message_id',
@@ -88,13 +88,13 @@ class BaseFormatter:
         if etype == types.PeerChannel:
             if str(eid).startswith('-100'):
                 return eid
-            # Append -100 at start. See telethon/utils.py get_peer_id.
+            # Append -100 at start. See garry/utils.py get_peer_id.
             return -(eid + pow(10, math.floor(math.log10(eid) + 3)))
 
     def get_display_name(self, entity):
         """
         Get the display name of a Chat, Channel, Supergroup, or User namedtuple,
-        or a Bot API marked Context ID. Modeled on telethon/utils.py
+        or a Bot API marked Context ID. Modeled on garry/utils.py
         get_display_name. Return '' if there is no name, and raise ValueError
         if not passed one of the above types.
         """

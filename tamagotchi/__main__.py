@@ -13,7 +13,7 @@ from contextlib import suppress
 
 import tqdm
 import appdirs
-from telethon import TelegramClient, utils
+from garry import TelegramClient, utils
 
 from tamagotchi.dumper import Dumper
 from tamagotchi.tamago import Tamago
@@ -83,9 +83,9 @@ def load_config(filename):
     logger.setLevel(getattr(logging, level))
     # Library loggers
     level = config['Dumper'].get('LibraryLogLevel').upper()
-    telethon_logger = logging.getLogger('telethon_aio')
-    telethon_logger.setLevel(getattr(logging, level))
-    telethon_logger.addHandler(handler)
+    garry_logger = logging.getLogger('garry_aio')
+    garry_logger.setLevel(getattr(logging, level))
+    garry_logger.addHandler(handler)
 
     # Convert relative paths and paths with ~
     config['Dumper']['OutputDirectory'] = os.path.abspath(os.path.expanduser(

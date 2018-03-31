@@ -26,7 +26,7 @@ setup(
     ],
     keywords='Telegram messaging database',
     packages=find_packages(),
-    install_requires=['tqdm', 'telethon-aio', 'appdirs'],
+    install_requires=['tqdm', 'garry-aio', 'appdirs'],
     scripts=['bin/tamagotchi'],
     project_urls={
         'Bug Reports': 'https://github.com/expectocode/tamagotchi/issues',

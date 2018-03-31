@@ -88,7 +88,7 @@ tamagotchi vs `telegram-history-dump <https://github.com/tvdstaaij/telegram-hist
 -  Support for saving the history of a person or other dialog, so you
    can see e.g. what their name was over time.
 
--  Using `telethon <https://github.com/LonamiWebs/Telethon>`__
+-  Using `garry <https://github.com/LonamiWebs/Telethon>`__
    instead of `tg-cli <https://github.com/vysheng/tg>`__ allows
    support for newer Telegram features like pinned messages, admin logs,
    user bios, first-class support for supergroups and avoids the

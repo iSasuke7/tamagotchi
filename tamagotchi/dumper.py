@@ -10,8 +10,8 @@ from datetime import datetime
 from enum import Enum
 import os.path
 
-from telethon.tl import types
-from telethon.utils import get_peer_id, resolve_id, get_input_peer
+from garry.tl import types
+from garry.utils import get_peer_id, resolve_id, get_input_peer
 
 from . import utils
 

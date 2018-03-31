@@ -3,7 +3,7 @@
 import re
 import logging
 
-from telethon import utils
+from garry import utils
 
 from .downloader import Downloader
 

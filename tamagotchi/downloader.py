@@ -8,9 +8,9 @@ import time
 from collections import defaultdict
 
 import tqdm
-from telethon import utils
-from telethon.errors import ChatAdminRequiredError
-from telethon.tl import types, functions
+from garry import utils
+from garry.errors import ChatAdminRequiredError
+from garry.tl import types, functions
 
 from . import utils as egg_watch
 

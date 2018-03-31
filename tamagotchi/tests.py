@@ -7,12 +7,12 @@ import unittest
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from telethon import TelegramClient, utils as tl_utils
-from telethon.errors import (
+from garry import TelegramClient, utils as tl_utils
+from garry.errors import (
     PhoneNumberOccupiedError, SessionPasswordNeededError
 )
-from telethon.extensions import markdown
-from telethon.tl import functions, types
+from garry.extensions import markdown
+from garry.tl import functions, types
 
 import utils
 from downloader import Downloader
