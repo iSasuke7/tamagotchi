@@ -1,10 +1,10 @@
-# Configuration file for telegram-export. Default values are commented.
+# Configuration file for tamagotchi. Default values are commented.
 # This file should be copied to config.ini and edited.
 # Use ; or # for comment lines
 
 [TelegramAPI]
 
-################ You MUST edit these values to use the exporter #################
+################ You MUST edit these values to use the tamagotchi #################
 # You can either get your own from my.telegram.org, or use a published one (easier):
 # https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/SourceFiles/config.h#L222
 # https://git.io/vADys (permanent link)
@@ -15,14 +15,14 @@ ApiHash = 0123456789abcdef0123456789abcdef
 PhoneNumber = xxxxxxxxxx
 
 # This can be anything
-; SessionName = exporter
-SessionName = exporter
+; SessionName = tamagotchi
+SessionName = tamagotchi
 
 [Dumper]
 
 # Output folder, where the database, media, and cache files will be stored.
 # You can leave this as . to save to your current directory (when you call the
-# program), or put a path like ~/Downloads or /home/username/tg-export/. It is
+# program), or put a path like ~/Downloads or /home/username/tamagotchi/. It is
 # usually a better idea to set a specific directory here.
 OutputDirectory = .
 
@@ -34,9 +34,9 @@ OutputDirectory = .
 # It's usually  a good idea to set a whitelist, as otherwise you will have
 # to wait for lots of dialogs you don't care about to be downloaded. You can
 # get a list of dialogs and their associated IDs by running
-# `telegram-export.py --list-dialogs`
+# `tamagotchi.py --list-dialogs`
 Whitelist = example, username : My friend,
-			-1001132836449: telegram-export group
+			-1001132836449: tamagotchi group
 # Don't forget your commas!
 
 ############################# 'Advanced Options' #############################
@@ -64,8 +64,8 @@ MaxSize = 1MB
 LogLevel = INFO
 
 # Database filename (without '.db')
-; DBFileName = export
-DBFileName = export
+; DBFileName = tamagotchi
+DBFileName = tamagotchi
 
 # The format string to be used when downloading media. You can use any literal
 # string you wish in the name, relative names (including directories, separated

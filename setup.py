@@ -1,4 +1,4 @@
-"""Setup for telegram-export"""
+"""Setup for tamagotchi"""
 
 from setuptools import setup, find_packages
 from codecs import open
@@ -10,12 +10,12 @@ with open("README.rst", "r") as readme:
     desc=readme.read()
 
 setup(
-    name='telegram-export',
+    name='tamagotchi',
     version='0.1.1',
     description='A tool to download Telegram data (users, chats, messages, '
                 'and media) into a database (and display the saved data).',
     long_description=desc,
-    url='https://github.com/expectocode/telegram-export',
+    url='https://github.com/expectocode/tamagotchi',
     author='expectocode and Lonami',
     author_email='expectocode@gmail.com',
     classifiers=[
@@ -27,9 +27,9 @@ setup(
     keywords='Telegram messaging database',
     packages=find_packages(),
     install_requires=['tqdm', 'telethon-aio', 'appdirs'],
-    scripts=['bin/telegram-export'],
+    scripts=['bin/tamagotchi'],
     project_urls={
-        'Bug Reports': 'https://github.com/expectocode/telegram-export/issues',
-        'Source': 'https://github.com/expectocode/telegram-export'
+        'Bug Reports': 'https://github.com/expectocode/tamagotchi/issues',
+        'Source': 'https://github.com/expectocode/tamagotchi'
     }
 )

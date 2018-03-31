@@ -1,4 +1,4 @@
-telegram-export
+tamagotchi
 ===============
 
 A tool to download Telegram data (users, chats, messages, and media)
@@ -12,14 +12,14 @@ into a database (and display the saved data).
 Installation
 ============
 
-The simplest way is to run ``sudo pip3 install --upgrade telegram_export``,
-after which telegram-export should simply be available as a command: ``telegram-export``
+The simplest way is to run ``sudo pip3 install --upgrade tamagotchi``,
+after which tamagotchi should simply be available as a command: ``tamagotchi``
 in the terminal. That's it!
 
-If you don't like using ``sudo pip``, you can use ``pip3 install --user telegram_export``,
+If you don't like using ``sudo pip``, you can use ``pip3 install --user tamagotchi``,
 but you'll have to add something like ``~/.local/bin/`` to your $PATH to get
 the command available. If you don't want to add to PATH, you can also use
-``python3 -m telegram_export`` anywhere instead of ``telegram-export``. You'll
+``python3 -m tamagotchi`` anywhere instead of ``tamagotchi``. You'll
 have a similar issue if you're using a virtualenv, but if you're using those
 you probably know what you're doing anyway :)
 
@@ -31,18 +31,18 @@ boost when downloading media. Telegram requires a lot of encryption and
 decryption and this can make downloading files especially slow unless
 using a nice fast library like cryptg. One user reported a `speed
 increase of
-1100% <https://github.com/expectocode/telegram-export/issues/29>`__.
+1100% <https://github.com/expectocode/tamagotchi/issues/29>`__.
 
 Usage
 =====
 
-First, copy config.ini.example (from GitHub) to ``~/.config/telegram-export/config.ini``
+First, copy config.ini.example (from GitHub) to ``~/.config/tamagotchi/config.ini``
 and edit some values. You'll probably need to create this folder. To write your
 config whitelist, you may want to refer to the output of
-``telegram-export --list-dialogs`` to get dialog IDs or
-``telegram-export --search <query>`` to filter the results.
+``tamagotchi --list-dialogs`` to get dialog IDs or
+``tamagotchi --search <query>`` to filter the results.
 
-Then run ``telegram-export`` and allow it to dump data.
+Then run ``tamagotchi`` and allow it to dump data.
 
 Full option listing:
 
@@ -73,17 +73,17 @@ Full option listing:
                             that were seen before but not downloaded).
 
 
-telegram-export vs `telegram-history-dump <https://github.com/tvdstaaij/telegram-history-dump>`__
+tamagotchi vs `telegram-history-dump <https://github.com/tvdstaaij/telegram-history-dump>`__
 =================================================================================================
 
-    *(For brevity we'll just refer them to as "export" and "dump")*
+    *(For brevity we'll just refer them to as "egg" and "dump")*
 
 -  SQLite instead of jsonlines allows for far more powerful queries and
    better efficiency but loses compatibility with text-manipulating UNIX
    tools as the data is not stored as text (or even more powerful tools
    like `jq <https://stedolan.github.io/jq/>`__).
 
--  export's stored data is less complicated than dump's json dumps
+-  egg's stored data is less complicated than dump's json dumps
 
 -  Support for saving the history of a person or other dialog, so you
    can see e.g. what their name was over time.
@@ -115,9 +115,9 @@ telegram-export vs `telegram-history-dump <https://github.com/tvdstaaij/telegram
 -  Closer interaction with the Telegram API theoretically allows big
    speed improvements (Practical comparison of times soon™)
 
--  export's database file is bound to a user (like dump), and the
+-  egg's database file is bound to a user (like dump), and the
    program will exit if you login as another person to avoid mixing
-   things up. If you do use export with multiple users, you should
+   things up. If you do use egg with multiple users, you should
    specify a different database for each user. You can easily select
    different config files through ``--config-file``.
 
@@ -142,7 +142,7 @@ It uses the Telegram API (what Telegram apps use), so it has access to
 everything a Telegram app can do. This is why you need an API ID and API
 hash to use it, and why one from Telegram Desktop will work. Since
 normal clients need to download messages, media, users etc to display
-them in-app, telegram-export can do the same, and save them into a nice
+them in-app, tamagotchi can do the same, and save them into a nice
 database.
 
 So no, it's not really a bot, but it does use the same technology as

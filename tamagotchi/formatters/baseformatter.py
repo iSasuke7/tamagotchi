@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Utility to extract data from a telegram-export database"""
+"""Utility to extract data from a tamagotchi database"""
 import datetime
 import math
 import sqlite3
@@ -50,7 +50,7 @@ Media = namedtuple('Media', (
 
 class BaseFormatter:
     """
-    A class to extract data from a given telegram-export database in the form
+    A class to extract data from a given tamagotchi database in the form
     of named tuples.
     """
     def __init__(self, db):

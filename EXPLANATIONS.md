@@ -15,7 +15,7 @@ DateUpdated
 ===========
 
 Stored as seconds since epoch, this is used to address the issue of the
-exporter only "seeing" a snapshot of the state, and to store historical
+tamagotchi only "seeing" a snapshot of the state, and to store historical
 data. When, for example, a User changes their name, the old User will be
 kept, and the new User with updated details will have a newer DateUpdated.
 
@@ -28,12 +28,12 @@ Invalidation time
 
 Related to DateUpdated, this can be thought of as a cache invalidation time.
 When the dumper is run, it checks for if an entity (say, a User) has changed
-since the last export. If there has been a change, the new User will always
-be saved. However, if the User is the same as the last export, there is a
-problem. If the exporter only saves on updates, there is an information gap
-between User updates, even though in each individual export the exporter knew
+since the last tamagotchi. If there has been a change, the new User will always
+be saved. However, if the User is the same as the last tamagotchi, there is a
+problem. If the tamagotchi only saves on updates, there is an information gap
+between User updates, even though in each individual tamagotchi the tamagotchi knew
 there was no change, since in analysis we cannot know if a User was checked
-at times between the saved records. However, if the exporter always saves the
+at times between the saved records. However, if the tamagotchi always saves the
 new User regardless of changes, there will be many redundant records that
 serve only to say that a User has not changed. The invalidation time is used
 to solve this. If the User has not changed, and time since the last saved

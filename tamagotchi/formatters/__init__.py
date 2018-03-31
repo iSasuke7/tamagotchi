@@ -1,5 +1,5 @@
 """
-Formatter's to take exported database data and display in a variety of formats.
+Formatter's to take tamagotchi database data and display in a variety of formats.
 """
 from .baseformatter import BaseFormatter
 from .textformatter import TextFormatter

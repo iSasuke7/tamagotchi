@@ -45,18 +45,18 @@ async def get_entities_iter(mode, in_list, client):
         return
 
 
-class Exporter:
+class Tamago:
     """A class to iterate through dialogs and dump them, or save past media"""
     def __init__(self, client, config, dumper):
         self.client = client
         self.dumper = dumper
         self.downloader = Downloader(client, config['Dumper'], dumper)
-        self.logger = logging.getLogger("exporter")
+        self.logger = logging.getLogger("tamago")
 
     def close(self):
-        """Gracefully close the exporter"""
+        """Gracefully close the tamago"""
         # Downloader handles its own graceful exit
-        self.logger.info("Closing exporter")
+        self.logger.info("Closing tamago")
         self.client.disconnect()
         self.dumper.conn.close()
 

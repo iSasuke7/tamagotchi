@@ -12,7 +12,7 @@ from telethon import utils
 from telethon.errors import ChatAdminRequiredError
 from telethon.tl import types, functions
 
-from . import utils as export_utils
+from . import utils as egg_watch
 
 __log__ = logging.getLogger(__name__)
 
@@ -83,7 +83,7 @@ class Downloader:
             return False
         if not self.types:
             return True
-        return export_utils.get_media_type(media) in self.types
+        return egg_watch.get_media_type(media) in self.types
 
     def _dump_full_entity(self, entity):
         """
@@ -240,7 +240,7 @@ class Downloader:
         # The saved media didn't have a filename and we set our own.
         # Detect a sensible extension from the known mimetype.
         if not ext:
-            ext = export_utils.get_extension(media_row[4])
+            ext = egg_watch.get_extension(media_row[4])
 
         # Apply the date to the user format string and then replace the map
         formatter['filename'] = filename

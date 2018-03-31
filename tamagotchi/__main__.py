@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""The main telegram-export script.
-Handles arguments and config, then calls the Exporter.
+"""The main tamagotchi script.
+Handles arguments and config, then calls the Tamagotchi.
 """
 import argparse
 import asyncio
@@ -15,9 +15,9 @@ import tqdm
 import appdirs
 from telethon import TelegramClient, utils
 
-from telegram_export.dumper import Dumper
-from telegram_export.exporter import Exporter
-from telegram_export.formatters import NAME_TO_FORMATTER
+from tamagotchi.dumper import Dumper
+from tamagotchi.tamago import Tamago
+from tamagotchi.formatters import NAME_TO_FORMATTER
 
 logger = logging.getLogger('')  # Root logger
 
@@ -42,7 +42,7 @@ def load_config(filename):
     """Load config from the specified file and return the parsed config"""
     # Get a path to the file. If it was specified, it should be fine.
     # If it was not specified, assume it's config.ini in the script's dir.
-    config_dir = appdirs.user_config_dir("telegram-export")
+    config_dir = appdirs.user_config_dir("tamagotchi")
 
     if not filename:
         filename = os.path.join(config_dir, 'config.ini')
@@ -50,17 +50,17 @@ def load_config(filename):
     if not os.path.isfile(filename):
         logger.warning("No config file! Make one in {} and find an example "
                        "config at https://github.com/expectocode/"
-                       "telegram-export/blob/master/config.ini.example."
+                       "tamagotchi/blob/master/config.ini.example."
                        "Alternatively, use --config-file FILE".format(filename))
         exit(1)
 
     defaults = {
-        'SessionName': 'exporter',
+        'SessionName': 'tamago',
         'OutputDirectory': '.',
         'MediaWhitelist': 'chatphoto, photo, sticker',
         'MaxSize': '1MB',
         'LogLevel': 'INFO',
-        'DBFileName': 'export',
+        'DBFileName': 'tamagotchi',
         'InvalidationTime': '7200',
         'ChunkSize': '100',
         'MaxChunks': '0',
@@ -239,7 +239,7 @@ async def list_or_search_dialogs(args, client):
 
 async def main():
     """
-    The main telegram-export program. Goes through the
+    The main tamagotchi program. Goes through the
     configured dialogs and dumps them into the database.
     """
     args = parse_args()
@@ -269,13 +269,13 @@ async def main():
     if args.list_dialogs or args.search_string:
         return await list_or_search_dialogs(args, client)
 
-    exporter = Exporter(client, config, dumper)
+    tamago = Tamago(client, config, dumper)
 
     try:
         if args.download_past_media:
-            await exporter.download_past_media()
+            await tamago.download_past_media()
         else:
-            await exporter.start()
+            await tamago.start()
     except asyncio.CancelledError:
         # This should be triggered on KeyboardInterrupt's to prevent ugly
         # traceback from reaching the user. Important code that always
@@ -283,9 +283,9 @@ async def main():
         # in their respective `finally:` blocks to ensure it gets called.
         pass
     finally:
-        exporter.close()
+        tamago.close()
 
-    exporter.logger.info("Finished!")
+    tamago.logger.info("Finished!")
 
 
 if __name__ == '__main__':

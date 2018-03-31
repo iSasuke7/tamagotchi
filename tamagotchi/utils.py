@@ -1,4 +1,4 @@
-"""Utility functions for telegram-export which aren't specific to one purpose"""
+"""Utility functions for tamagotchi which aren't specific to one purpose"""
 import mimetypes
 
 from telethon.tl import types

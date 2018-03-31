@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A module for dumping export data into the database"""
+"""A module for dumping tamagotchi data into the database"""
 import json
 import logging
 import sqlite3
@@ -48,7 +48,7 @@ def sanitize_dict(dictionary):
 
 
 class Dumper:
-    """Class to interface with the database for exports"""
+    """Class to interface with the database for tamagotchi"""
 
     def __init__(self, config):
         """
@@ -281,7 +281,7 @@ class Dumper:
         result = cur.fetchone()
         if result:
             if result[0] != self_id:
-                print('This export database belongs to another user!',
+                print('This tamagotchi database belongs to another user!',
                       file=sys.stderr)
                 exit(1)
         else:
